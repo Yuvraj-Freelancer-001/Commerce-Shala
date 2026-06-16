@@ -7,6 +7,7 @@ import DirectorSection from "./components/sections/DirectorSection";
 import ToppersSection from "./components/sections/ToppersSection";
 import TestimonialsSection from "./components/sections/TestimonialsSection";
 import GallerySection from "./components/sections/GallerySection";
+import HindiSection from "./components/sections/HindiSection";
 import FAQSection from "./components/sections/FAQSection";
 import ContactSection from "./components/sections/ContactSection";
 import Footer from "./components/layout/Footer";
@@ -23,6 +24,7 @@ function App() {
         <CoursesSection />
         <DirectorSection />
         <ToppersSection />
+        <HindiSection />
         <TestimonialsSection />
         <GallerySection />
         <FAQSection />

@@ -1,0 +1,38 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "gvDGgTFEA4Xo8zkp89EEr"
+uri = "file://artifacts/commerce-shala/public/images/gallery-1.png"
+type = "image"
+title = "Classroom interior with students"
+
+[[generated]]
+id = "mqraoCsZeXaEWNALVb6Vq"
+uri = "file://artifacts/commerce-shala/public/images/gallery-2.png"
+type = "image"
+title = "Teacher explaining commerce"
+
+[[generated]]
+id = "TF_0SAgRGNbTfev8l2_DP"
+uri = "file://artifacts/commerce-shala/public/images/gallery-3.png"
+type = "image"
+title = "Students studying books"
+
+[[generated]]
+id = "YbvCpMNexPOWNRZB8V7pt"
+uri = "file://artifacts/commerce-shala/public/images/gallery-4.png"
+type = "image"
+title = "Awards display"
+
+[[generated]]
+id = "gUrdN-IAW24WKhE-HHOHb"
+uri = "file://artifacts/commerce-shala/public/images/gallery-5.png"
+type = "image"
+title = "Group photo of students"
+
+[[generated]]
+id = "xM6ihDq5I6m3G8FrO32pB"
+uri = "file://artifacts/commerce-shala/public/images/gallery-6.png"
+type = "image"
+title = "Commerce charts books"

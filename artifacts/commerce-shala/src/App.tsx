@@ -7,6 +7,7 @@ import DirectorSection from "./components/sections/DirectorSection";
 import ToppersSection from "./components/sections/ToppersSection";
 import TestimonialsSection from "./components/sections/TestimonialsSection";
 import GallerySection from "./components/sections/GallerySection";
+import FAQSection from "./components/sections/FAQSection";
 import ContactSection from "./components/sections/ContactSection";
 import Footer from "./components/layout/Footer";
 import FloatingElements from "./components/layout/FloatingElements";
@@ -24,6 +25,7 @@ function App() {
         <ToppersSection />
         <TestimonialsSection />
         <GallerySection />
+        <FAQSection />
         <ContactSection />
       </main>
       <Footer />

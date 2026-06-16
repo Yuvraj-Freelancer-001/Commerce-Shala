@@ -1,2 +1,13 @@
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://commerce-shala.replit.app/sitemap.xml
+
+# Crawl-delay for bots
+Crawl-delay: 5
+
+# Block irrelevant paths
+Disallow: /node_modules/
+Disallow: /.vite/
+Disallow: /src/

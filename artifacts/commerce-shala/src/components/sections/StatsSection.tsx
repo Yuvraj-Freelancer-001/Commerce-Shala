@@ -26,12 +26,26 @@ function Counter({ end, suffix = '', label }: { end: number; suffix?: string; la
   }, [isInView, end]);
 
   return (
-    <div ref={ref} className="flex flex-col items-center justify-center p-8 text-center transition-transform border rounded-2xl bg-card border-card-border hover:-translate-y-2">
-      <div className="mb-2 font-serif text-5xl font-bold text-primary">
-        {count}{suffix}
-      </div>
-      <div className="text-sm tracking-wider text-gray-400 uppercase">
-        {label}
+    <div 
+      className="relative w-full h-48 transition-transform duration-500 ease-out group"
+      style={{ perspective: '1000px' }}
+    >
+      <div 
+        ref={ref} 
+        className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center transition-transform duration-500 border rounded-2xl bg-card border-primary/20 shadow-lg shadow-primary/5"
+        style={{ 
+          transformStyle: 'preserve-3d', 
+          transform: 'rotateY(-10deg) translateZ(0)',
+        }}
+        onMouseEnter={(e) => e.currentTarget.style.transform = 'rotateY(0deg) translateZ(20px)'}
+        onMouseLeave={(e) => e.currentTarget.style.transform = 'rotateY(-10deg) translateZ(0)'}
+      >
+        <div className="mb-2 font-serif text-5xl font-bold text-primary" style={{ transform: 'translateZ(30px)' }}>
+          {count}{suffix}
+        </div>
+        <div className="text-sm font-semibold tracking-wider text-gray-300 uppercase" style={{ transform: 'translateZ(20px)' }}>
+          {label}
+        </div>
       </div>
     </div>
   );
@@ -39,14 +53,13 @@ function Counter({ end, suffix = '', label }: { end: number; suffix?: string; la
 
 export default function StatsSection() {
   return (
-    <section className="relative py-24 bg-background">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 pointer-events-none" />
+    <section className="relative py-24 bg-background overflow-hidden">
       <div className="container relative z-10 px-4 mx-auto">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          <Counter end={90} suffix="%+" label="Top Results" />
-          <Counter end={500} suffix="+" label="Student Success Stories" />
-          <Counter end={10} suffix="+" label="Years of Excellence" />
-          <Counter end={100} suffix="%" label="Board Performance" />
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <Counter end={500} suffix="+" label="Students Coached" />
+          <Counter end={94.2} suffix="%" label="Top Score" />
+          <Counter end={11} suffix="+" label="Years Excellence" />
+          <Counter end={3} suffix="" label="Boards Covered" />
         </div>
       </div>
     </section>

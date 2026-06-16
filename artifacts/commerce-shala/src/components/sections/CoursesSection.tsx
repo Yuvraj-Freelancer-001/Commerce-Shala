@@ -1,81 +1,75 @@
-import { motion, useMotionTemplate, useMotionValue, useSpring } from 'framer-motion';
-import { MouseEvent } from 'react';
+import { motion } from 'framer-motion';
 import { BookOpen, TrendingUp, Briefcase } from 'lucide-react';
 
 const courses = [
-  { title: 'Accountancy', board: 'CBSE', icon: BookOpen, desc: 'Complete syllabus coverage with focus on practical problem solving.' },
-  { title: 'Economics', board: 'CBSE', icon: TrendingUp, desc: 'Macro and Micro economics simplified for board exams.' },
-  { title: 'Business Studies', board: 'CBSE', icon: Briefcase, desc: 'Case study approach for maximum marks.' },
-  { title: 'Accountancy', board: 'ISC', icon: BookOpen, desc: 'In-depth concepts aligned with ISC guidelines.' },
-  { title: 'Economics', board: 'ISC', icon: TrendingUp, desc: 'Comprehensive coverage of economic theories.' },
-  { title: 'All Subjects', board: 'UP Board', icon: Briefcase, desc: 'Specialized batch in Hindi/English medium.' },
+  { title: 'Accountancy', board: 'CBSE', icon: BookOpen, desc: 'Complete syllabus coverage with focus on practical problem solving.', features: ['Daily practice sheets', 'Past year papers', 'Doubt clearing'] },
+  { title: 'Economics', board: 'CBSE', icon: TrendingUp, desc: 'Macro and Micro economics simplified for board exams.', features: ['Graph analysis', 'Concept mapping', 'Current affairs'] },
+  { title: 'Business Studies', board: 'CBSE', icon: Briefcase, desc: 'Case study approach for maximum marks.', features: ['Case study focus', 'Mnemonic techniques', 'Revision notes'] },
+  { title: 'Accountancy', board: 'ISC', icon: BookOpen, desc: 'In-depth concepts aligned with ISC guidelines.', features: ['Strict ISC pattern', 'Project assistance', 'Weekly tests'] },
+  { title: 'Economics', board: 'ISC', icon: TrendingUp, desc: 'Comprehensive coverage of economic theories.', features: ['Analytical thinking', 'Model answers', 'Concept clarity'] },
+  { title: 'All Subjects', board: 'UP Board', icon: Briefcase, desc: 'Specialized batch in Hindi/English medium.', features: ['Bilingual approach', 'State board pattern', 'High score strategy'] },
 ];
 
 function CourseCard({ course, index }: any) {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
-
-  const rotateX = useMotionTemplate`${mouseYSpring}deg`;
-  const rotateY = useMotionTemplate`${mouseXSpring}deg`;
-
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    x.set(xPct * 20);
-    y.set(yPct * -20);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 50, translateZ: -100 }}
+      whileInView={{ opacity: 1, y: 0, translateZ: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-      }}
-      className="relative group p-8 rounded-3xl bg-card/80 border border-card-border backdrop-blur-sm cursor-pointer"
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="w-full h-80 group cursor-pointer"
+      style={{ perspective: '1000px' }}
     >
-      <div className="absolute inset-0 z-0 transition-opacity duration-300 opacity-0 rounded-3xl bg-gradient-to-br from-primary/20 to-transparent group-hover:opacity-100" />
-      
-      <div className="relative z-10 transform-gpu" style={{ transform: "translateZ(50px)" }}>
-        <div className="flex justify-between items-start mb-6">
-          <div className="p-3 rounded-lg bg-primary/10 text-primary">
-            <course.icon size={24} />
+      <div 
+        className="relative w-full h-full transition-transform duration-700 shadow-xl"
+        style={{ transformStyle: 'preserve-3d' }}
+      >
+        {/* Front Face */}
+        <div 
+          className="absolute inset-0 p-8 rounded-3xl bg-card border border-primary/20 backdrop-blur-sm group-hover:[transform:rotateY(180deg)] transition-transform duration-700"
+          style={{ backfaceVisibility: 'hidden', transformStyle: 'preserve-3d' }}
+        >
+          <div className="flex justify-between items-start mb-6" style={{ transform: 'translateZ(40px)' }}>
+            <div className="p-3 rounded-lg bg-primary/10 text-primary">
+              <course.icon size={24} />
+            </div>
+            <span className="px-3 py-1 text-xs font-semibold text-primary border border-primary/30 rounded-full">
+              {course.board}
+            </span>
           </div>
-          <span className="px-3 py-1 text-xs font-semibold text-primary border border-primary/30 rounded-full">
-            {course.board}
-          </span>
+          <h3 className="mb-2 font-serif text-2xl font-bold text-white" style={{ transform: 'translateZ(50px)' }}>
+            {course.title}
+          </h3>
+          <p className="text-gray-400" style={{ transform: 'translateZ(30px)' }}>
+            {course.desc}
+          </p>
         </div>
-        
-        <h3 className="mb-2 font-serif text-2xl font-bold text-white group-hover:text-primary transition-colors">
-          {course.title}
-        </h3>
-        <p className="mb-6 text-gray-400">
-          {course.desc}
-        </p>
-        
-        <button className="text-sm font-semibold tracking-wide text-white uppercase transition-colors hover:text-primary flex items-center gap-2 group/btn">
-          Know More
-          <span className="transform group-hover/btn:translate-x-1 transition-transform">→</span>
-        </button>
+
+        {/* Back Face */}
+        <div 
+          className="absolute inset-0 p-8 rounded-3xl bg-primary/10 border border-primary flex flex-col justify-between group-hover:[transform:rotateY(0deg)] [transform:rotateY(180deg)] transition-transform duration-700"
+          style={{ backfaceVisibility: 'hidden', transformStyle: 'preserve-3d' }}
+        >
+          <div style={{ transform: 'translateZ(40px)' }}>
+            <h4 className="font-bold text-white mb-4">What's included:</h4>
+            <ul className="space-y-2">
+              {course.features.map((f: string, i: number) => (
+                <li key={i} className="text-sm text-gray-300 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" /> {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <a 
+            href="https://wa.me/918004117317"
+            target="_blank"
+            rel="noreferrer"
+            className="w-full py-3 text-center rounded-xl bg-primary text-black font-bold text-sm hover:scale-105 transition-transform"
+            style={{ transform: 'translateZ(50px)' }}
+          >
+            Enroll via WhatsApp
+          </a>
+        </div>
       </div>
     </motion.div>
   );
@@ -83,15 +77,26 @@ function CourseCard({ course, index }: any) {
 
 export default function CoursesSection() {
   return (
-    <section id="courses" className="py-24 bg-background relative z-10">
-      <div className="container px-4 mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-2">Academic Programs</h2>
-          <h3 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Elite Coaching Courses</h3>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">Specialized batches for 11th and 12th standard commerce students.</p>
+    <section id="courses" className="py-24 bg-background relative z-10 overflow-hidden">
+      <div className="container px-4 mx-auto relative z-10">
+        <div className="text-center mb-16" style={{ perspective: '500px' }}>
+          <motion.h2 
+            initial={{ opacity: 0, rotateX: 30 }}
+            whileInView={{ opacity: 1, rotateX: 0 }}
+            className="text-sm font-bold tracking-widest text-primary uppercase mb-2"
+          >
+            Academic Programs
+          </motion.h2>
+          <motion.h3 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="font-serif text-4xl md:text-5xl font-bold text-white mb-4"
+          >
+            Elite Coaching Courses
+          </motion.h3>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style={{ perspective: "1000px" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {courses.map((course, i) => (
             <CourseCard key={i} course={course} index={i} />
           ))}

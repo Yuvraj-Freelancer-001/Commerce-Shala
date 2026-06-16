@@ -2,13 +2,6 @@ import { motion } from 'framer-motion';
 import { Phone } from 'lucide-react';
 import { SiWhatsapp } from 'react-icons/si';
 
-const highlights = [
-  { hi: 'विशेषज्ञ शिक्षक', en: 'Expert Faculty', icon: '🎓' },
-  { hi: 'व्यक्तिगत मार्गदर्शन', en: 'Personal Mentorship', icon: '🌟' },
-  { hi: '90%+ परिणाम', en: '90%+ Results', icon: '🏆' },
-  { hi: 'नि:शुल्क डेमो क्लास', en: 'Free Demo Class', icon: '📚' },
-];
-
 const subjects = [
   {
     hi: 'लेखाशास्त्र',
@@ -27,171 +20,101 @@ const subjects = [
   },
 ];
 
-const boards = ['CBSE', 'ISC', 'UP Board'];
-
 export default function HindiSection() {
   return (
     <section
       id="hindi"
       lang="hi"
-      className="py-24 bg-background relative overflow-hidden"
-      aria-label="कॉमर्स शाला — हिंदी में जानकारी"
+      className="py-32 bg-background relative overflow-hidden"
+      style={{ perspective: '1000px' }}
     >
-      {/* Hidden SEO text block — crawlable but visually integrated */}
-      <div className="sr-only">
-        <h2>कानपुर का सर्वश्रेष्ठ कॉमर्स कोचिंग संस्थान</h2>
-        <p>
-          कॉमर्स शाला कानपुर में CBSE, ISC और UP Board के कक्षा 11 और 12 के छात्रों के लिए
-          लेखाशास्त्र, अर्थशास्त्र और व्यवसाय अध्ययन की विशेष कोचिंग प्रदान करता है।
-          संस्थापक: सौरभ त्रिपाठी। पता: 117/P/761 शिवपुरी छपेड़ा पुलिया, ककदेव, कानपुर,
-          उत्तर प्रदेश। फोन: +91 80041 17317। नि:शुल्क डेमो क्लास के लिए आज ही संपर्क करें।
-          UP Board कॉमर्स कोचिंग कानपुर, CBSE कॉमर्स कोचिंग कानपुर, अकाउंटेंसी कोचिंग
-          कानपुर, इकोनॉमिक्स कोचिंग कानपुर, बेस्ट कॉमर्स कोचिंग कानपुर।
-        </p>
+      {/* 3D Perspective Grid Background */}
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute w-[200%] h-[200%] opacity-10"
+          style={{
+            backgroundImage: 'linear-gradient(rgba(212,175,55,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.5) 1px, transparent 1px)',
+            backgroundSize: '80px 80px',
+            transform: 'rotateX(70deg) translateZ(-200px)',
+          }}
+        />
+        <div className="absolute w-[600px] h-[600px] rounded-full bg-primary/10 blur-[150px]" />
       </div>
 
-      {/* Decorative background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/3 blur-[120px]" />
-      </div>
-
-      <div className="container px-4 mx-auto relative z-10">
-
-        {/* Header */}
+      <div className="container px-4 mx-auto relative z-10" style={{ transformStyle: 'preserve-3d' }}>
+        
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          initial={{ opacity: 0, translateZ: -100 }}
+          whileInView={{ opacity: 1, translateZ: 0 }}
+          className="text-center mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 mb-5 text-sm font-medium border rounded-full border-primary/30 bg-primary/10 text-primary">
+          <div className="inline-flex items-center gap-2 px-6 py-2 mb-6 text-sm font-bold tracking-widest border rounded-full border-primary/30 bg-primary/10 text-primary">
             🇮🇳 हिंदी में जानकारी
           </div>
-          <h2 className="font-serif text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
-            कानपुर का{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">
-              सर्वश्रेष्ठ
-            </span>{' '}
-            कॉमर्स कोचिंग
+          <h2 className="font-serif text-4xl md:text-6xl font-bold text-white mb-6" style={{ textShadow: '0 10px 20px rgba(0,0,0,0.5)' }}>
+            कानपुर का <span className="text-primary drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]">सर्वश्रेष्ठ</span> कॉमर्स कोचिंग
           </h2>
-          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-            <span className="text-primary font-semibold">कॉमर्स शाला</span> — जहाँ कक्षा 11 और 12 के
-            छात्र लेखाशास्त्र, अर्थशास्त्र और व्यवसाय अध्ययन में महारत हासिल करते हैं।
-          </p>
+        </motion.div>
 
-          {/* Board badges */}
-          <div className="flex flex-wrap justify-center gap-3 mt-6">
-            {boards.map((b) => (
-              <span
-                key={b}
-                className="px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-bold tracking-wider"
+        {/* 3D Fan Layout Cards */}
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-24 h-auto md:h-96" style={{ transformStyle: 'preserve-3d' }}>
+          {subjects.map((s, i) => {
+            // Fan rotation logic
+            const rotateY = i === 0 ? '15deg' : i === 1 ? '0deg' : '-15deg';
+            const translateZ = i === 1 ? '50px' : '0px';
+            const translateX = i === 0 ? '20px' : i === 2 ? '-20px' : '0px';
+
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.2 }}
+                className="w-full md:w-1/3 p-8 rounded-3xl border border-primary/30 bg-card/90 backdrop-blur-xl shadow-2xl transition-transform duration-500 hover:!transform-none hover:z-20"
+                style={{ 
+                  transform: `perspective(1000px) rotateY(${rotateY}) translateZ(${translateZ}) translateX(${translateX})`,
+                  transformStyle: 'preserve-3d'
+                }}
               >
-                {b}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Highlight pills */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-          {highlights.map((h, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="flex flex-col items-center text-center p-5 rounded-2xl border border-white/10 bg-card/60 backdrop-blur-sm hover:border-primary/40 hover:bg-primary/5 transition-all"
-            >
-              <span className="text-3xl mb-3">{h.icon}</span>
-              <p className="text-white font-bold text-base mb-1">{h.hi}</p>
-              <p className="text-gray-500 text-xs">{h.en}</p>
-            </motion.div>
-          ))}
+                <p className="text-primary font-bold tracking-widest uppercase mb-2" style={{ transform: 'translateZ(20px)' }}>{s.en}</p>
+                <h3 className="font-serif text-4xl font-bold text-white mb-4" style={{ transform: 'translateZ(30px)' }}>{s.hi}</h3>
+                <div className="w-12 h-1 bg-primary mb-6" style={{ transform: 'translateZ(20px)' }} />
+                <p className="text-gray-300 text-lg leading-relaxed" style={{ transform: 'translateZ(10px)' }}>{s.desc}</p>
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* Subject cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {subjects.map((s, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group relative p-7 rounded-3xl border border-white/10 bg-card/60 backdrop-blur-sm hover:border-primary/40 transition-all overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-all" />
-              <div className="relative z-10">
-                <p className="text-primary text-xs font-bold tracking-widest uppercase mb-1">{s.en}</p>
-                <h3 className="font-serif text-3xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
-                  {s.hi}
-                </h3>
-                <div className="w-10 h-0.5 bg-primary/50 mb-4" />
-                <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Director intro in Hindi */}
+        {/* 3D Push Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row gap-8 items-center p-8 md:p-12 rounded-3xl border border-primary/20 bg-primary/5 backdrop-blur-sm mb-16"
-        >
-          <div className="w-20 h-20 rounded-full bg-primary/10 border-2 border-primary/40 flex items-center justify-center shrink-0">
-            <span className="font-serif text-3xl font-bold text-primary">ST</span>
-          </div>
-          <div>
-            <p className="text-primary text-sm font-bold tracking-widest uppercase mb-2">संस्थापक एवं निदेशक</p>
-            <h3 className="font-serif text-3xl font-bold text-white mb-3">सौरभ त्रिपाठी</h3>
-            <blockquote className="text-gray-300 text-lg italic leading-relaxed border-l-2 border-primary/50 pl-4">
-              "हम केवल किताबें नहीं पढ़ाते — हम कल के वित्तीय नेता तैयार करते हैं।
-              हर छात्र हमारे लिए परिवार का हिस्सा है।"
-            </blockquote>
-          </div>
-        </motion.div>
-
-        {/* Address + CTA block */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className="text-center"
+          style={{ transformStyle: 'preserve-3d' }}
         >
-          <h3 className="font-serif text-2xl md:text-3xl font-bold text-white mb-3">
-            आज ही <span className="text-primary">नि:शुल्क डेमो क्लास</span> बुक करें
-          </h3>
-          <p className="text-gray-400 mb-3">
-            📍 117/P/761 शिवपुरी छपेड़ा पुलिया, ककदेव, कानपुर, उत्तर प्रदेश
-          </p>
-          <p className="text-gray-400 mb-8 text-sm">
-            सोमवार – शनिवार &bull; प्रातः 7 बजे से सायं 8 बजे तक
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center" style={{ transform: 'translateZ(40px)' }}>
             <a
               href="tel:+918004117317"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary text-black font-bold text-lg hover:bg-primary/90 hover:scale-105 transition-all shadow-lg shadow-primary/20"
+              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full bg-primary text-black font-bold text-xl transition-all duration-300"
+              style={{ transformStyle: 'preserve-3d' }}
             >
-              <Phone size={20} />
-              अभी कॉल करें — +91 80041 17317
+              <div className="absolute inset-0 rounded-full bg-primary/50 translate-y-2 blur-sm -z-10 group-hover:translate-y-4 group-hover:blur-md transition-all duration-300" />
+              <Phone size={24} className="group-hover:scale-110 transition-transform" />
+              अभी कॉल करें
             </a>
             <a
-              href="https://wa.me/918004117317?text=नमस्ते%2C%20मैं%20Commerce%20Shala%20में%20कॉमर्स%20कोचिंग%20के%20बारे%20में%20जानकारी%20चाहता%20हूँ।%20कृपया%20डेमो%20क्लास%20की%20जानकारी%20दें।"
+              href="https://wa.me/918004117317"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-[#25D366]/50 text-[#25D366] font-bold text-lg hover:bg-[#25D366]/10 hover:scale-105 transition-all"
+              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full border-2 border-[#25D366] text-[#25D366] font-bold text-xl bg-black/50 backdrop-blur-sm transition-all duration-300 hover:bg-[#25D366] hover:text-black"
+              style={{ transformStyle: 'preserve-3d' }}
             >
-              <SiWhatsapp size={20} />
-              WhatsApp पर संपर्क करें
+              <SiWhatsapp size={24} className="group-hover:scale-110 transition-transform" />
+              WhatsApp
             </a>
           </div>
         </motion.div>
+
       </div>
     </section>
   );

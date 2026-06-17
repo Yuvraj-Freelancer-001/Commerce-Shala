@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Commerce Shala — Logo Preview</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #050505; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; gap: 60px; font-family: serif; }
+  .label { color: #555; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; font-family: sans-serif; margin-bottom: 8px; text-align: center; }
+  .variant { display: flex; flex-direction: column; align-items: center; }
+  .on-white { background: #ffffff; padding: 40px; border-radius: 16px; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ VARIANT A — Seal / Coin ═══════════ -->
+<div class="variant">
+  <p class="label">Primary Logo — Dark Background</p>
+  <svg width="340" height="340" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="gold1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%"   stop-color="#F5E27A"/>
+        <stop offset="35%"  stop-color="#D4AF37"/>
+        <stop offset="65%"  stop-color="#B8941F"/>
+        <stop offset="100%" stop-color="#D4AF37"/>
+      </linearGradient>
+      <linearGradient id="gold2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%"   stop-color="#FFF5A0"/>
+        <stop offset="50%"  stop-color="#D4AF37"/>
+        <stop offset="100%" stop-color="#9A7B1A"/>
+      </linearGradient>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <!-- Outer ring -->
+    <circle cx="170" cy="170" r="158" stroke="url(#gold1)" stroke-width="1.5" fill="none" opacity="0.5"/>
+    <!-- Main ring -->
+    <circle cx="170" cy="170" r="148" stroke="url(#gold1)" stroke-width="2.5" fill="none"/>
+    <!-- Inner ring -->
+    <circle cx="170" cy="170" r="138" stroke="url(#gold1)" stroke-width="1" fill="none" opacity="0.6"/>
+
+    <!-- Circular text — top arc -->
+    <path id="topArc" d="M 40,170 A 130,130 0 0,1 300,170" fill="none"/>
+    <text font-family="'Georgia', serif" font-size="11.5" fill="url(#gold1)" letter-spacing="5.5" font-weight="600">
+      <textPath href="#topArc" startOffset="6%">COMMERCE  SHALA  •  KANPUR</textPath>
+    </text>
+
+    <!-- Circular text — bottom arc -->
+    <path id="botArc" d="M 55,185 A 118,118 0 0,0 285,185" fill="none"/>
+    <text font-family="'Georgia', serif" font-size="10" fill="url(#gold1)" letter-spacing="4" opacity="0.8">
+      <textPath href="#botArc" startOffset="10%">EST. 1999  •  EXCELLENCE IN COMMERCE</textPath>
+    </text>
+
+    <!-- Four small diamond accents at 12/3/6/9 -->
+    <polygon points="170,24 174,32 170,28 166,32" fill="url(#gold1)"/>
+    <polygon points="316,170 308,174 312,170 308,166" fill="url(#gold1)"/>
+    <polygon points="170,316 174,308 170,312 166,308" fill="url(#gold1)"/>
+    <polygon points="24,170 32,174 28,170 32,166" fill="url(#gold1)"/>
+
+    <!-- Inner decorative lines -->
+    <line x1="90" y1="195" x2="130" y2="195" stroke="url(#gold1)" stroke-width="0.8" opacity="0.7"/>
+    <line x1="210" y1="195" x2="250" y2="195" stroke="url(#gold1)" stroke-width="0.8" opacity="0.7"/>
+
+    <!-- Central CS Monogram -->
+    <g filter="url(#glow)">
+      <!-- C -->
+      <text x="85" y="195" font-family="'Georgia', serif" font-size="110" font-weight="700"
+            fill="url(#gold2)" opacity="0.15" letter-spacing="-8">CS</text>
+      <!-- Main CS -->
+      <text x="72" y="195" font-family="'Georgia', serif" font-size="108" font-weight="700"
+            fill="url(#gold2)" letter-spacing="-10">CS</text>
+    </g>
+
+    <!-- Horizontal rule under CS -->
+    <line x1="108" y1="207" x2="232" y2="207" stroke="url(#gold1)" stroke-width="1" opacity="0.6"/>
+
+    <!-- "Commerce शाला" below rule -->
+    <text x="170" y="228" text-anchor="middle"
+          font-family="'Georgia', serif" font-size="13.5" fill="url(#gold1)"
+          letter-spacing="1" opacity="0.9">Commerce शाला</text>
+  </svg>
+</div>
+
+<!-- ═══════════ VARIANT B — Wordmark + Emblem ═══════════ -->
+<div class="variant">
+  <p class="label">Horizontal Wordmark Version</p>
+  <svg width="520" height="130" viewBox="0 0 520 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%"   stop-color="#F5E27A"/>
+        <stop offset="50%"  stop-color="#D4AF37"/>
+        <stop offset="100%" stop-color="#B8941F"/>
+      </linearGradient>
+      <filter id="glow2">
+        <feGaussianBlur stdDeviation="2" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <!-- Mini emblem circle -->
+    <circle cx="65" cy="65" r="56" stroke="url(#g3)" stroke-width="2" fill="none"/>
+    <circle cx="65" cy="65" r="48" stroke="url(#g3)" stroke-width="0.8" fill="none" opacity="0.5"/>
+    <text x="65" y="84" text-anchor="middle" font-family="'Georgia', serif" font-size="46" font-weight="700"
+          fill="url(#g3)" filter="url(#glow2)" letter-spacing="-3">CS</text>
+    <line x1="35" y1="92" x2="95" y2="92" stroke="url(#g3)" stroke-width="0.8" opacity="0.6"/>
+    <text x="65" y="104" text-anchor="middle" font-family="'Georgia', serif" font-size="7" fill="url(#g3)"
+          letter-spacing="2" opacity="0.8">KANPUR</text>
+
+    <!-- Vertical divider -->
+    <line x1="140" y1="22" x2="140" y2="108" stroke="url(#g3)" stroke-width="1" opacity="0.4"/>
+
+    <!-- Wordmark -->
+    <text x="160" y="62" font-family="'Georgia', serif" font-size="36" font-weight="700"
+          fill="url(#g3)" letter-spacing="2" filter="url(#glow2)">COMMERCE</text>
+    <text x="160" y="95" font-family="'Georgia', serif" font-size="36" font-weight="700"
+          fill="url(#g3)" letter-spacing="2">SHALA</text>
+
+    <!-- Tagline -->
+    <text x="162" y="113" font-family="'Georgia', serif" font-size="10" fill="url(#g3)"
+          letter-spacing="3.5" opacity="0.65">Commerce शाला  •  Excellence Since 1999</text>
+  </svg>
+</div>
+
+<!-- ═══════════ VARIANT C — On White (for print) ═══════════ -->
+<div class="variant">
+  <p class="label">On White (Print / Letterhead Version)</p>
+  <div class="on-white">
+    <svg width="280" height="280" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="darkGold" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%"   stop-color="#9A7B1A"/>
+          <stop offset="50%"  stop-color="#B8941F"/>
+          <stop offset="100%" stop-color="#9A7B1A"/>
+        </linearGradient>
+      </defs>
+      <circle cx="140" cy="140" r="128" stroke="url(#darkGold)" stroke-width="2.5" fill="none"/>
+      <circle cx="140" cy="140" r="118" stroke="url(#darkGold)" stroke-width="1" fill="none" opacity="0.5"/>
+      <path id="topArc2" d="M 28,140 A 112,112 0 0,1 252,140" fill="none"/>
+      <text font-family="'Georgia', serif" font-size="10" fill="url(#darkGold)" letter-spacing="4.5" font-weight="600">
+        <textPath href="#topArc2" startOffset="7%">COMMERCE  SHALA  •  KANPUR</textPath>
+      </text>
+      <path id="botArc2" d="M 43,152 A 100,100 0 0,0 237,152" fill="none"/>
+      <text font-family="'Georgia', serif" font-size="9" fill="url(#darkGold)" letter-spacing="3.5" opacity="0.8">
+        <textPath href="#botArc2" startOffset="9%">EST. 1999  •  EXCELLENCE IN COMMERCE</textPath>
+      </text>
+      <polygon points="140,14 143,20 140,17 137,20" fill="url(#darkGold)"/>
+      <polygon points="140,266 143,260 140,263 137,260" fill="url(#darkGold)"/>
+      <polygon points="266,140 260,143 263,140 260,137" fill="url(#darkGold)"/>
+      <polygon points="14,140 20,143 17,140 20,137" fill="url(#darkGold)"/>
+      <line x1="80" y1="162" x2="108" y2="162" stroke="url(#darkGold)" stroke-width="0.8" opacity="0.7"/>
+      <line x1="172" y1="162" x2="200" y2="162" stroke="url(#darkGold)" stroke-width="0.8" opacity="0.7"/>
+      <text x="140" y="163" text-anchor="middle" font-family="'Georgia', serif" font-size="88" font-weight="700"
+            fill="url(#darkGold)" letter-spacing="-8">CS</text>
+      <line x1="88" y1="174" x2="192" y2="174" stroke="url(#darkGold)" stroke-width="0.8" opacity="0.6"/>
+      <text x="140" y="190" text-anchor="middle" font-family="'Georgia', serif" font-size="11"
+            fill="url(#darkGold)" letter-spacing="1" opacity="0.9">Commerce शाला</text>
+    </svg>
+  </div>
+</div>
+
+</body>
+</html>

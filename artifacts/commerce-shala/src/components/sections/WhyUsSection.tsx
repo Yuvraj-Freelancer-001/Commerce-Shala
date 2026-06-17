@@ -59,6 +59,7 @@ const highlights = [
   { number: '500+', label: 'Students Taught', icon: '👨‍🎓' },
   { number: '3', label: 'Boards Covered', icon: '📋' },
   { number: '95%', label: 'Score 90+ Marks', icon: '🏆' },
+  { number: '100%', label: 'Board Pass Rate', icon: '🌟' },
 ];
 
 function StatusIcon({ status }: { status: string }) {
@@ -104,7 +105,7 @@ export default function WhyUsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-14"
         >
           {highlights.map((h, i) => (
             <motion.div

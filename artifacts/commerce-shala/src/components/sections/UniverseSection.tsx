@@ -1,93 +1,238 @@
 import { motion } from 'framer-motion';
 
-const panels = [
+const subjects = [
   {
-    title: "Accountancy",
-    desc: "Master debits, credits, and financial statements. The language of business taught with clarity and precision.",
-    color: "#D4AF37",
-    bg: "#061A23",
-    align: "left"
+    title: 'Accountancy',
+    hindi: 'लेखाशास्त्र',
+    icon: '📒',
+    symbol: 'Σ',
+    tagline: 'The Language of Business',
+    desc: 'Master debits, credits, balance sheets and financial statements. Build the analytical foundation every commerce topper needs.',
+    topics: ['Journal & Ledger', 'Trial Balance', 'Financial Statements', 'Partnership Accounts', 'Company Accounts', 'Cash Flow'],
+    accentColor: '#D4AF37',
+    glowColor: 'rgba(212,175,55,0.15)',
+    borderGlow: 'rgba(212,175,55,0.4)',
+    number: '01',
   },
   {
-    title: "Economics",
-    desc: "Understand markets, policies, and global economics. Decode the forces that shape our world.",
-    color: "#B68FD8",
-    bg: "#1A0B2E",
-    align: "right"
+    title: 'Economics',
+    hindi: 'अर्थशास्त्र',
+    icon: '📈',
+    symbol: '∞',
+    tagline: 'Decode the World Around You',
+    desc: 'Understand markets, demand & supply, national income and global trade. See the invisible forces that move economies.',
+    topics: ['Micro Economics', 'Macro Economics', 'National Income', 'Money & Banking', 'Government Budget', 'Balance of Payments'],
+    accentColor: '#D4AF37',
+    glowColor: 'rgba(212,175,55,0.12)',
+    borderGlow: 'rgba(212,175,55,0.35)',
+    number: '02',
   },
   {
-    title: "Business Studies",
-    desc: "Learn management, marketing, and entrepreneurship. Build the foundation for future enterprise leaders.",
-    color: "#4CAF50",
-    bg: "#0A2416",
-    align: "left"
-  }
+    title: 'Business Studies',
+    hindi: 'व्यवसाय अध्ययन',
+    icon: '💼',
+    symbol: '◈',
+    tagline: 'Build the Mind of a Leader',
+    desc: 'Learn management, marketing, finance and entrepreneurship. Transform from a student into a future business leader.',
+    topics: ['Management Principles', 'Business Finance', 'Marketing Mix', 'Consumer Protection', 'Entrepreneurship', 'Stock Exchange'],
+    accentColor: '#D4AF37',
+    glowColor: 'rgba(212,175,55,0.12)',
+    borderGlow: 'rgba(212,175,55,0.35)',
+    number: '03',
+  },
 ];
 
-function CSSWireframeShape({ color }: { color: string }) {
+function SubjectCard({ subject, index }: { subject: typeof subjects[0]; index: number }) {
   return (
-    <div className="absolute right-10 top-1/4 w-96 h-96 opacity-20 pointer-events-none" style={{ perspective: '800px', transformStyle: 'preserve-3d' }}>
-      <div 
-        className="w-full h-full" 
-        style={{ 
-          transformStyle: 'preserve-3d',
-          animation: 'rotateCube 20s infinite linear'
-        }}
+    <motion.div
+      initial={{ opacity: 0, y: 60, rotateX: 8 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.7, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ scale: 1.025, translateY: -8 }}
+      className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.05] to-transparent cursor-default transition-all duration-500 hover:border-primary/50"
+      style={{ perspective: '1000px' }}
+    >
+      {/* Ambient glow */}
+      <div
+        className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+        style={{ background: `radial-gradient(ellipse at 50% 0%, ${subject.glowColor}, transparent 70%)` }}
+      />
+
+      {/* Top shimmer line */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+        style={{ background: `linear-gradient(90deg, transparent, ${subject.accentColor}, transparent)` }}
+      />
+
+      {/* Number watermark */}
+      <div
+        className="absolute -right-4 -top-6 font-serif font-bold text-[120px] leading-none select-none pointer-events-none transition-all duration-500 group-hover:opacity-100"
+        style={{ color: subject.accentColor, opacity: 0.04 }}
       >
-        <div className="absolute inset-0 border-4 rounded-full" style={{ borderColor: color, transform: 'rotateX(0deg)' }} />
-        <div className="absolute inset-0 border-4 rounded-full" style={{ borderColor: color, transform: 'rotateX(60deg)' }} />
-        <div className="absolute inset-0 border-4 rounded-full" style={{ borderColor: color, transform: 'rotateX(120deg)' }} />
-        <div className="absolute inset-0 border-4 rounded-full" style={{ borderColor: color, transform: 'rotateY(60deg)' }} />
-        <div className="absolute inset-0 border-4 rounded-full" style={{ borderColor: color, transform: 'rotateY(120deg)' }} />
+        {subject.number}
       </div>
-    </div>
+
+      {/* Symbol watermark */}
+      <div
+        className="absolute right-6 bottom-8 font-serif font-bold text-8xl leading-none select-none pointer-events-none opacity-5 group-hover:opacity-10 transition-opacity duration-500"
+        style={{ color: subject.accentColor }}
+      >
+        {subject.symbol}
+      </div>
+
+      {/* Card content */}
+      <div className="relative z-10 flex flex-col h-full p-8">
+        {/* Icon + number row */}
+        <div className="flex items-center justify-between mb-6">
+          <motion.span
+            animate={{ rotate: [0, -6, 6, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: index * 0.8 }}
+            className="text-4xl"
+          >
+            {subject.icon}
+          </motion.span>
+          <span
+            className="font-mono text-xs font-bold tracking-[0.3em] px-3 py-1.5 rounded-full border"
+            style={{ color: subject.accentColor, borderColor: `${subject.accentColor}40`, background: `${subject.accentColor}10` }}
+          >
+            {subject.number}
+          </span>
+        </div>
+
+        {/* Title block */}
+        <div className="mb-5">
+          <h3
+            className="font-serif font-bold text-5xl md:text-6xl leading-none mb-1.5 transition-all duration-300"
+            style={{
+              background: `linear-gradient(135deg, ${subject.accentColor} 0%, #fff5c0 50%, ${subject.accentColor} 100%)`,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            {subject.title}
+          </h3>
+          <div className="text-gray-600 text-base font-medium font-serif italic">{subject.hindi}</div>
+        </div>
+
+        {/* Tagline */}
+        <div
+          className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-5"
+          style={{ color: subject.accentColor }}
+        >
+          <span
+            className="w-8 h-px"
+            style={{ background: subject.accentColor }}
+          />
+          {subject.tagline}
+        </div>
+
+        {/* Description */}
+        <p className="text-gray-400 text-sm leading-relaxed mb-7 flex-1">
+          {subject.desc}
+        </p>
+
+        {/* Divider */}
+        <div
+          className="h-px w-full mb-6 opacity-20 group-hover:opacity-40 transition-opacity duration-500"
+          style={{ background: `linear-gradient(90deg, ${subject.accentColor}, transparent)` }}
+        />
+
+        {/* Topics chips */}
+        <div className="flex flex-wrap gap-2">
+          {subject.topics.map((topic) => (
+            <span
+              key={topic}
+              className="px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-300 group-hover:border-primary/30 group-hover:bg-primary/5"
+              style={{ borderColor: 'rgba(255,255,255,0.08)', color: '#9ca3af' }}
+            >
+              {topic}
+            </span>
+          ))}
+        </div>
+      </div>
+    </motion.div>
   );
 }
 
 export default function UniverseSection() {
   return (
-    <section id="universe" className="relative w-full bg-background flex flex-col">
-      {panels.map((panel, i) => (
-        <div 
-          key={i} 
-          className="relative w-full h-[100vh] sticky top-0 overflow-hidden flex items-center border-b border-white/5"
-          style={{ backgroundColor: panel.bg, perspective: '1200px' }}
-        >
-          {/* 3D Room Grid Floor/Ceiling */}
-          <div 
-            className="absolute inset-0 pointer-events-none opacity-20"
-            style={{
-              backgroundImage: `linear-gradient(${panel.color} 1px, transparent 1px), linear-gradient(90deg, ${panel.color} 1px, transparent 1px)`,
-              backgroundSize: '100px 100px',
-              transform: 'rotateX(75deg) scale(3) translateZ(-200px)',
-              transformStyle: 'preserve-3d'
-            }}
-          />
+    <section id="universe" className="relative py-28 bg-background overflow-hidden">
+      {/* Background glows */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/3 rounded-full blur-[120px] pointer-events-none" />
 
-          <CSSWireframeShape color={panel.color} />
-
-          <div className="container mx-auto px-4 relative z-10" style={{ transformStyle: 'preserve-3d' }}>
-            <motion.div
-              initial={{ opacity: 0, rotateX: 20, translateZ: -200 }}
-              whileInView={{ opacity: 1, rotateX: 0, translateZ: 0 }}
-              viewport={{ amount: 0.5 }}
-              transition={{ duration: 1 }}
-              className={`max-w-2xl p-10 rounded-3xl border border-white/10 backdrop-blur-md bg-black/40 shadow-2xl ${panel.align === 'right' ? 'ml-auto' : ''}`}
-              style={{ transformStyle: 'preserve-3d', transform: 'rotateY(-5deg)' }}
-            >
-              <h2 
-                className="mb-6 font-serif text-5xl md:text-7xl font-bold text-white border-b-2 pb-6 inline-block"
-                style={{ borderColor: panel.color, transform: 'translateZ(40px)' }}
-              >
-                {panel.title}
-              </h2>
-              <p className="text-2xl text-gray-300 leading-relaxed" style={{ transform: 'translateZ(20px)' }}>
-                {panel.desc}
-              </p>
-            </motion.div>
-          </div>
-        </div>
+      {/* Floating particles */}
+      {[...Array(10)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full bg-primary/20 pointer-events-none"
+          style={{
+            width: 3 + (i % 3),
+            height: 3 + (i % 3),
+            left: `${8 + i * 9}%`,
+            top: `${15 + (i % 5) * 15}%`,
+          }}
+          animate={{ y: [-10, 10, -10], opacity: [0.15, 0.5, 0.15] }}
+          transition={{ duration: 4 + i * 0.5, repeat: Infinity, ease: 'easeInOut', delay: i * 0.4 }}
+        />
       ))}
+
+      <div className="container px-4 mx-auto relative z-10">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 text-xs font-semibold tracking-widest uppercase border rounded-full border-primary/30 bg-primary/10 text-primary">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            Subjects We Master
+          </div>
+
+          <h2 className="font-serif text-5xl md:text-6xl font-bold text-white mb-5 leading-tight">
+            Three Pillars of
+            <br />
+            <span
+              className="text-transparent bg-clip-text"
+              style={{ backgroundImage: 'linear-gradient(135deg, #D4AF37 0%, #fff5c0 50%, #D4AF37 100%)' }}
+            >
+              Commerce Excellence
+            </span>
+          </h2>
+
+          <p className="text-gray-400 text-lg max-w-xl mx-auto">
+            Every subject taught by Saurabh sir personally — with depth, clarity, and the focus that board exams demand.
+          </p>
+        </motion.div>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {subjects.map((subject, i) => (
+            <SubjectCard key={i} subject={subject} index={i} />
+          ))}
+        </div>
+
+        {/* Bottom strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="mt-14 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500"
+        >
+          {['CBSE Board', 'ISC Board', 'UP Board', 'Class XI', 'Class XII'].map((tag) => (
+            <span key={tag} className="flex items-center gap-2">
+              <span className="w-1 h-1 rounded-full bg-primary/50" />
+              {tag}
+            </span>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 }

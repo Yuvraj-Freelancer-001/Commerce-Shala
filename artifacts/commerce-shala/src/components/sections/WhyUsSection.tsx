@@ -55,7 +55,7 @@ const features = [
 ];
 
 const highlights = [
-  { number: '10+', label: 'Years Teaching', icon: '🎓' },
+  { number: '25+', label: 'Years Excellence', icon: '🎓' },
   { number: '500+', label: 'Students Taught', icon: '👨‍🎓' },
   { number: '3', label: 'Boards Covered', icon: '📋' },
   { number: '95%', label: 'Score 90+ Marks', icon: '🏆' },

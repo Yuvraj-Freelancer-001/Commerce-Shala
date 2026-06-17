@@ -4,6 +4,7 @@ import HeroSection from "./components/sections/HeroSection";
 import StatsSection from "./components/sections/StatsSection";
 import UniverseSection from "./components/sections/UniverseSection";
 import CoursesSection from "./components/sections/CoursesSection";
+import WhyUsSection from "./components/sections/WhyUsSection";
 import BatchScheduleSection from "./components/sections/BatchScheduleSection";
 import DirectorSection from "./components/sections/DirectorSection";
 import ToppersSection from "./components/sections/ToppersSection";
@@ -26,6 +27,7 @@ function App() {
         <StatsSection />
         <UniverseSection />
         <CoursesSection />
+        <WhyUsSection />
         <BatchScheduleSection />
         <DirectorSection />
         <ToppersSection />

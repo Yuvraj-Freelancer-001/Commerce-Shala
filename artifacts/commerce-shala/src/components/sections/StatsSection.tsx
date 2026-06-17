@@ -58,7 +58,7 @@ export default function StatsSection() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <Counter end={500} suffix="+" label="Students Coached" />
           <Counter end={94.2} suffix="%" label="Top Score" />
-          <Counter end={11} suffix="+" label="Years Excellence" />
+          <Counter end={25} suffix="+" label="Years Excellence" />
           <Counter end={3} suffix="" label="Boards Covered" />
         </div>
       </div>

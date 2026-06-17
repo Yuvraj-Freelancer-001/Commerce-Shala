@@ -4,7 +4,7 @@ import { CheckCircle, XCircle, Minus } from 'lucide-react';
 const features = [
   {
     label: 'Expert Faculty',
-    us: { value: 'Saurabh Tripathi — 10+ yrs experience', status: 'yes' },
+    us: { value: 'Saurabh Tripathi — 25+ yrs experience', status: 'yes' },
     others: { value: 'Often junior/part-time teachers', status: 'no' },
   },
   {
@@ -59,7 +59,7 @@ const highlights = [
   { number: '500+', label: 'Students Taught', icon: '👨‍🎓' },
   { number: '3', label: 'Boards Covered', icon: '📋' },
   { number: '95%', label: 'Score 90+ Marks', icon: '🏆' },
-  { number: '100%', label: 'Board Pass Rate', icon: '🌟' },
+  { number: '100%', label: 'Success Rate', icon: '🌟' },
 ];
 
 function StatusIcon({ status }: { status: string }) {

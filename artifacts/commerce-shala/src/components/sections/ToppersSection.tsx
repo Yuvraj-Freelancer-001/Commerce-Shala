@@ -12,8 +12,8 @@ const toppers = [
   { name: "Vanshika Trivedi",  score: 86.0, rank: 7,  photo: "/toppers/topper7.jpg" },
   { name: "Akshita Mishra",    score: 85.0, rank: 8,  photo: "/toppers/topper8.jpg" },
   { name: "Harsh Verma",       score: 81.0, rank: 9,  photo: "/toppers/topper9.jpg" },
-  { name: "Poorvi Shivhare",   score: 81.0, rank: 10, photo: null },
-  { name: "Kratigya Mishra",   score: 81.0, rank: 11, photo: null },
+  { name: "Poorvi Shivhare",   score: 81.0, rank: 10, photo: "/toppers/topper10.jpg" },
+  { name: "Kratigya Mishra",   score: 81.0, rank: 11, photo: "/toppers/topper11.jpg" },
 ];
 
 const rankMedal: Record<number, string> = { 1: '🥇', 2: '🥈', 3: '🥉' };

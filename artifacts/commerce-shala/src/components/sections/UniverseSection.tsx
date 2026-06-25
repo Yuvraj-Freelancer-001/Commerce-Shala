@@ -53,27 +53,20 @@ function SubjectCard({ subject, index }: { subject: typeof subjects[0]; index: n
       className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.05] to-transparent cursor-default transition-all duration-500 hover:border-primary/50"
       style={{ perspective: '1000px' }}
     >
-      {/* Ambient glow */}
       <div
         className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
         style={{ background: `radial-gradient(ellipse at 50% 0%, ${subject.glowColor}, transparent 70%)` }}
       />
-
-      {/* Top shimmer line */}
       <div
         className="absolute top-0 left-0 right-0 h-px opacity-60 group-hover:opacity-100 transition-opacity duration-500"
         style={{ background: `linear-gradient(90deg, transparent, ${subject.accentColor}, transparent)` }}
       />
-
-      {/* Number watermark */}
       <div
         className="absolute -right-4 -top-6 font-serif font-bold text-[120px] leading-none select-none pointer-events-none transition-all duration-500 group-hover:opacity-100"
         style={{ color: subject.accentColor, opacity: 0.04 }}
       >
         {subject.number}
       </div>
-
-      {/* Symbol watermark */}
       <div
         className="absolute right-6 bottom-8 font-serif font-bold text-8xl leading-none select-none pointer-events-none opacity-5 group-hover:opacity-10 transition-opacity duration-500"
         style={{ color: subject.accentColor }}
@@ -81,9 +74,7 @@ function SubjectCard({ subject, index }: { subject: typeof subjects[0]; index: n
         {subject.symbol}
       </div>
 
-      {/* Card content */}
       <div className="relative z-10 flex flex-col h-full p-8">
-        {/* Icon + number row */}
         <div className="flex items-center justify-between mb-6">
           <motion.span
             animate={{ rotate: [0, -6, 6, 0] }}
@@ -100,7 +91,6 @@ function SubjectCard({ subject, index }: { subject: typeof subjects[0]; index: n
           </span>
         </div>
 
-        {/* Title block */}
         <div className="mb-5">
           <h3
             className="font-serif font-bold text-5xl md:text-6xl leading-none mb-1.5 transition-all duration-300"
@@ -116,30 +106,21 @@ function SubjectCard({ subject, index }: { subject: typeof subjects[0]; index: n
           <div className="text-gray-600 text-base font-medium font-serif italic">{subject.hindi}</div>
         </div>
 
-        {/* Tagline */}
         <div
           className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-5"
           style={{ color: subject.accentColor }}
         >
-          <span
-            className="w-8 h-px"
-            style={{ background: subject.accentColor }}
-          />
+          <span className="w-8 h-px" style={{ background: subject.accentColor }} />
           {subject.tagline}
         </div>
 
-        {/* Description */}
-        <p className="text-gray-400 text-sm leading-relaxed mb-7 flex-1">
-          {subject.desc}
-        </p>
+        <p className="text-gray-400 text-sm leading-relaxed mb-7 flex-1">{subject.desc}</p>
 
-        {/* Divider */}
         <div
           className="h-px w-full mb-6 opacity-20 group-hover:opacity-40 transition-opacity duration-500"
           style={{ background: `linear-gradient(90deg, ${subject.accentColor}, transparent)` }}
         />
 
-        {/* Topics chips */}
         <div className="flex flex-wrap gap-2">
           {subject.topics.map((topic) => (
             <span
@@ -159,12 +140,10 @@ function SubjectCard({ subject, index }: { subject: typeof subjects[0]; index: n
 export default function UniverseSection() {
   return (
     <section id="universe" className="relative py-28 bg-background overflow-hidden">
-      {/* Background glows */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/3 rounded-full blur-[120px] pointer-events-none" />
 
-      {/* Floating particles */}
       {[...Array(10)].map((_, i) => (
         <motion.div
           key={i}
@@ -181,7 +160,6 @@ export default function UniverseSection() {
       ))}
 
       <div className="container px-4 mx-auto relative z-10">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -205,19 +183,22 @@ export default function UniverseSection() {
             </span>
           </h2>
 
+          {/* Accountancy spelled out below heading as client requested */}
+          <p className="text-primary/70 text-sm font-bold tracking-[0.4em] uppercase mb-4">
+            Accountancy · Economics · Business Studies
+          </p>
+
           <p className="text-gray-400 text-lg max-w-xl mx-auto">
             Every subject taught by Saurabh sir personally — with depth, clarity, and the focus that board exams demand.
           </p>
         </motion.div>
 
-        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {subjects.map((subject, i) => (
             <SubjectCard key={i} subject={subject} index={i} />
           ))}
         </div>
 
-        {/* Bottom strip */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -225,7 +206,7 @@ export default function UniverseSection() {
           transition={{ delay: 0.4 }}
           className="mt-14 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500"
         >
-          {['CBSE Board', 'ISC Board', 'UP Board', 'Class XI', 'Class XII'].map((tag) => (
+          {['CBSE Board', 'ISC Board', 'ICSE Board', 'UP Board', 'CA Foundation', 'CS Foundation', 'Class IX', 'Class X', 'Class XI', 'Class XII'].map((tag) => (
             <span key={tag} className="flex items-center gap-2">
               <span className="w-1 h-1 rounded-full bg-primary/50" />
               {tag}
@@ -236,3 +217,4 @@ export default function UniverseSection() {
     </section>
   );
 }
+

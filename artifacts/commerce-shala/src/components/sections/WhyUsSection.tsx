@@ -9,18 +9,28 @@ const features = [
   },
   {
     label: 'Batch Size',
-    us: { value: 'Max 30 students — personal attention', status: 'yes' },
+    us: { value: 'Max 20 students — personal attention', status: 'yes' },
     others: { value: '60–100+ students per batch', status: 'no' },
   },
   {
     label: 'Boards Covered',
-    us: { value: 'CBSE, ISC & UP Board all in one', status: 'yes' },
+    us: { value: 'CBSE, ISC, ICSE & UP Board all in one', status: 'yes' },
     others: { value: 'Usually only 1 board', status: 'no' },
+  },
+  {
+    label: 'Programs Offered',
+    us: { value: 'CA Foundation & CS Foundation also available', status: 'yes' },
+    others: { value: 'Board classes only', status: 'no' },
   },
   {
     label: 'Subjects Offered',
     us: { value: 'Accountancy, Economics, Business Studies', status: 'yes' },
     others: { value: 'Often only 1–2 subjects', status: 'partial' },
+  },
+  {
+    label: 'Evening Batch',
+    us: { value: 'Convenient evening batch 7PM – 9PM', status: 'yes' },
+    others: { value: 'Fixed morning/afternoon slots only', status: 'no' },
   },
   {
     label: 'Doubt Clearing',
@@ -38,11 +48,6 @@ const features = [
     others: { value: 'Extra cost or not offered', status: 'no' },
   },
   {
-    label: 'Board Exam Strategy',
-    us: { value: 'Dedicated board prep sessions & notes', status: 'yes' },
-    others: { value: 'Generic study plan only', status: 'partial' },
-  },
-  {
     label: 'Proven Results',
     us: { value: '95%+ students score above 90 marks', status: 'yes' },
     others: { value: 'Results not publicly shared', status: 'no' },
@@ -57,9 +62,9 @@ const features = [
 const highlights = [
   { number: '25+', label: 'Years Excellence', icon: '🎓' },
   { number: '500+', label: 'Students Taught', icon: '👨‍🎓' },
-  { number: '3', label: 'Boards Covered', icon: '📋' },
+  { number: '5', label: 'Boards & Programs', icon: '📋' },
+  { number: 'Max 20', label: 'Students Per Batch', icon: '👥' },
   { number: '95%', label: 'Score 90+ Marks', icon: '🏆' },
-  { number: '100%', label: 'Success Rate', icon: '🌟' },
 ];
 
 function StatusIcon({ status }: { status: string }) {
@@ -71,14 +76,12 @@ function StatusIcon({ status }: { status: string }) {
 export default function WhyUsSection() {
   return (
     <section id="why-us" className="py-24 bg-background relative overflow-hidden">
-      {/* Background accents */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="absolute top-1/3 left-0 w-80 h-80 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/3 right-0 w-80 h-80 bg-primary/3 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container px-4 mx-auto relative z-10">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -99,7 +102,6 @@ export default function WhyUsSection() {
           </p>
         </motion.div>
 
-        {/* Highlight stats row */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -123,7 +125,7 @@ export default function WhyUsSection() {
           ))}
         </motion.div>
 
-        {/* Comparison table — desktop */}
+        {/* Desktop table */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -131,7 +133,6 @@ export default function WhyUsSection() {
           transition={{ delay: 0.2 }}
           className="hidden md:block rounded-3xl border border-primary/20 overflow-hidden shadow-2xl shadow-primary/5"
         >
-          {/* Table header */}
           <div className="grid grid-cols-3 bg-primary/10 border-b border-primary/20">
             <div className="py-4 px-6 text-sm font-bold text-gray-400 uppercase tracking-widest">Feature</div>
             <div className="py-4 px-6 text-sm font-bold text-primary uppercase tracking-widest text-center border-l border-primary/10 bg-primary/10">
@@ -142,7 +143,6 @@ export default function WhyUsSection() {
             </div>
           </div>
 
-          {/* Rows */}
           {features.map((f, i) => (
             <motion.div
               key={i}
@@ -154,9 +154,7 @@ export default function WhyUsSection() {
                 i % 2 === 0 ? 'bg-white/[0.01]' : 'bg-transparent'
               }`}
             >
-              <div className="py-4 px-6 font-medium text-gray-300 flex items-center text-sm">
-                {f.label}
-              </div>
+              <div className="py-4 px-6 font-medium text-gray-300 flex items-center text-sm">{f.label}</div>
               <div className="py-4 px-6 border-l border-primary/10 bg-primary/[0.03] flex items-start gap-2.5">
                 <StatusIcon status={f.us.status} />
                 <span className="text-sm text-white">{f.us.value}</span>
@@ -169,7 +167,7 @@ export default function WhyUsSection() {
           ))}
         </motion.div>
 
-        {/* Comparison cards — mobile */}
+        {/* Mobile cards */}
         <div className="md:hidden space-y-4">
           {features.map((f, i) => (
             <motion.div
@@ -203,7 +201,6 @@ export default function WhyUsSection() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -102,7 +102,7 @@ function CSS3DScene() {
           animation: 'gridMove 4s linear infinite',
         }}
       />
-      
+
       {/* Floating 3D Cubes */}
       <div className="absolute inset-0 pointer-events-none" style={{ transformStyle: 'preserve-3d' }}>
         <CSSCube delay={0} x="20%" y="30%" z={-100} size={60} />

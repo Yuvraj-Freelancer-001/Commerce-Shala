@@ -30,12 +30,19 @@ export default function Navbar() {
     >
       <div className="container px-4 mx-auto md:px-6">
         <div className="flex items-center justify-between">
+          
+          {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="flex items-center justify-center w-10 h-10 border rounded-lg bg-primary/10 border-primary/30 group-hover:bg-primary/20 transition-colors">
-              <span className="font-serif text-xl font-bold text-primary">CS</span>
+            <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-primary/60 shadow-lg shadow-primary/20 group-hover:border-primary transition-all duration-300">
+              <img
+                src="/images/gpt-image-2_A_circular_coin_seal_design_—_gold_CS_monogram_in_the_centre_COMMERCE_SHALA_-0.jpg"
+                alt="Commerce Shala Logo"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-lg font-bold tracking-wider text-white">COMMERCE SHALA</span>
+              <span className="font-serif text-lg font-bold tracking-wider text-white leading-tight">COMMERCE SHALA</span>
+              <span className="text-primary text-[9px] font-medium tracking-[3px] uppercase">Where Toppers Are Made</span>
             </div>
           </a>
 
@@ -115,3 +122,4 @@ export default function Navbar() {
     </header>
   );
 }
+

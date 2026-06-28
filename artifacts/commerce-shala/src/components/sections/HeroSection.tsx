@@ -1,6 +1,6 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Stars, OrbitControls } from '@react-three/drei';
-import { useRef, useMemo, useState, useEffect } from 'react';
+import { useRef, useMemo, useState, useEffect } from 'react';// @ts-ignore
 import * as THREE from 'three';
 import { motion } from 'framer-motion';
 import { isWebGLAvailable } from '@/lib/webgl';

@@ -5,7 +5,7 @@ import { Plus, Minus } from 'lucide-react';
 const faqs = [
   {
     q: "Which boards does Commerce Shala cover?",
-    a: "Commerce Shala provides expert coaching for CBSE, ISC, and UP Board commerce students in Class 11 and Class 12. Our curriculum is perfectly aligned with each board's syllabus and exam pattern."
+a: "Commerce Shala provides expert coaching for CBSE, ISC, ICSE, and UP Board commerce students in Class 9, 11 and Class 12. Our curriculum is perfectly aligned with each board's syllabus and exam pattern."
   },
   {
     q: "Which subjects are taught?",

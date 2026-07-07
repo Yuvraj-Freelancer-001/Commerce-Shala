@@ -102,7 +102,7 @@ export default function Footer() {
             </span>.
           </p>
           <p className="text-gray-600 text-xs text-center">
-            CBSE &bull; ISC &bull; UP Board &bull; Commerce Coaching &bull; Kanpur, Uttar Pradesh
+            CBSE • ISC • ICSE • UP Board • Commerce Coaching • Kanpur, Uttar Pradesh
           </p>
         </div>
       </div>

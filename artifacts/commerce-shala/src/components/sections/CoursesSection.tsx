@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import { SiWhatsapp } from 'react-icons/si';
 
-const boards = ['All', 'CBSE', 'ISC', 'UP Board'] as const;
+const boards = ['All', 'CBSE', 'ISC', 'ICSE', 'UP Board'] as const;
 
 const courses = [
   {

@@ -42,6 +42,19 @@ const batches = [
     badge: 'Evening',
     color: '#D4AF37',
   },
+{
+    name: 'Night Batch',
+    time: '7:00 PM – 9:00 PM',
+    days: 'Monday to Saturday',
+    icon: '🌙',
+    seatsTotal:20
+    seatsFilled:8
+    subjects: ['Accountancy', 'Economics', 'Business Studies'],
+    boards: ['CBSE', 'ISC', 'ICSE', 'UP Board'],
+    highlight: false,
+    badge: 'Night',
+    color: '#D4AF37',
+  },
   {
     name: 'Weekend Batch',
     time: '10:00 AM – 1:00 PM',

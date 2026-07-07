@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: "What are the batch timings and fee structure?",
-    a: "Batches run morning and evening to suit school schedules. Call +91 80041 17317 or WhatsApp us for the current fee structure and available slots — we offer a FREE demo class before you decide."
+a: "Batches run morning, evening and night to suit school schedules. Call +91 80041 17317 or WhatsApp us for the current fee structure and available slots — we offer a FREE demo class before you decide."
   },
   {
     q: "Is study material provided?",

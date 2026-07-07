@@ -6,7 +6,7 @@ export default function Footer() {
       itemType="https://schema.org/EducationalOrganization"
     >
       <meta itemProp="name" content="Commerce Shala" />
-      <meta itemProp="url" content="https://commerce-shala.replit.app/" />
+      <meta itemProp="url" content="https://commerce-shala/" />
       <meta itemProp="telephone" content="+918004117317" />
       <link itemProp="sameAs" href="https://wa.me/918004117317" />
 
@@ -22,7 +22,7 @@ export default function Footer() {
               <span className="font-serif text-xl font-bold tracking-wider text-white">COMMERCE SHALA</span>
             </a>
             <p className="text-gray-400 max-w-sm mb-6" itemProp="description">
-              Kanpur's elite commerce coaching institute. Shaping future commerce leaders with expert guidance in Accountancy, Economics &amp; Business Studies for CBSE, ISC and UP Board.
+              Kanpur's elite commerce coaching institute. Shaping future commerce leaders with expert guidance in Accountancy, Economics & Business Studies for CBSE, ISC, ICSE and UP Board.
             </p>
 
             {/* NAP — schema-friendly address block */}

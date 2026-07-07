@@ -170,7 +170,7 @@ export default function HeroSection() {
             className="inline-flex items-center px-4 py-2 mb-6 text-sm font-medium text-white border rounded-full backdrop-blur-md border-primary/30 bg-primary/10"
             style={{ transform: 'translateZ(60px)' }}
           >
-            CBSE • ISC • UP Board
+            CBSE • ISC • ICSE • UP Board
           </motion.div>
 
           <motion.h1

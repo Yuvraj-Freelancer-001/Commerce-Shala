@@ -132,7 +132,7 @@ export default function ContactSection() {
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-400">Board</label>
                   <select name="board" className="w-full bg-background border border-card-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer">
-                    <option value="CBSE">CBSE</option>
+                                        <option value="CBSE">CBSE</option> <option value="ICSE">ICSE</option>
                     <option value="ISC">ISC</option>
                     <option value="UP Board">UP Board</option>
                   </select>

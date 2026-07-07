@@ -11,7 +11,7 @@ const batches = [
     seatsTotal: 30,
     seatsFilled: 26,
     subjects: ['Accountancy', 'Economics', 'Business Studies'],
-    boards: ['CBSE', 'ISC', 'UP Board'],
+    boards: ['CBSE', 'ISC','ICSE', 'UP Board'],
     highlight: false,
     badge: 'Early Bird',
     color: '#D4AF37',

@@ -73,7 +73,7 @@ export default function DirectorSection() {
 
             <ul className="space-y-4" style={{ transform: 'translateZ(20px)' }}>
               {[
-                "Expert in CBSE, ISC & UP Board Commerce",
+                "Expert in CBSE, ISC, ICSE & UP Board Commerce",
                 "Proven track record of 90%+ results",
                 "Personalized mentorship approach",
                 "Based in Kanpur, UP"

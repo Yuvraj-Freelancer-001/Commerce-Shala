@@ -47,8 +47,8 @@ const batches = [
     time: '7:00 PM – 9:00 PM',
     days: 'Monday to Saturday',
     icon: '🌙',
-    seatsTotal:20
-    seatsFilled:8
+    seatsTotal:20,
+    seatsFilled:8,
     subjects: ['Accountancy', 'Economics', 'Business Studies'],
     boards: ['CBSE', 'ISC', 'ICSE', 'UP Board'],
     highlight: false,

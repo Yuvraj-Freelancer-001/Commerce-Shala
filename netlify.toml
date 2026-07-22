@@ -1,6 +1,10 @@
 [build]
   command = "npm run build"
-  publish = "dist"
+  publish = "artifacts/commerce-shala/dist/public"
+
+[build.environment]
+  PORT = "3000"
+  BASE_PATH = "/"
 
 [[redirects]]
   from = "/*"

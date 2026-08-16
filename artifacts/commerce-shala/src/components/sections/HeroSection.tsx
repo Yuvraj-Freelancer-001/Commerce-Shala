@@ -164,14 +164,14 @@ export default function HeroSection() {
 
         <div className="flex flex-col items-center justify-center pointer-events-auto" style={{ transformStyle: 'preserve-3d' }}>
           <motion.div
-            initial={{ opacity: 0, y: 30, translateZ: 50 }}
-            animate={{ opacity: 1, y: 0, translateZ: 50 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="inline-flex items-center px-4 py-2 mb-6 text-sm font-medium text-white border rounded-full backdrop-blur-md border-primary/30 bg-primary/10"
-            style={{ transform: 'translateZ(60px)' }}
-          >
-            CBSE • ISC • ICSE • UP Board
-          </motion.div>
+  initial={{ opacity: 0, y: 30, translateZ: 50 }}
+  animate={{ opacity: 1, y: 0, translateZ: 50 }}
+  transition={{ duration: 1, delay: 0.2 }}
+  className="inline-flex flex-wrap items-center justify-center gap-x-1 px-4 py-2 mb-6 text-xs sm:text-sm font-medium text-white text-center border rounded-2xl backdrop-blur-md border-primary/30 bg-primary/10"
+  style={{ transform: 'translateZ(60px)' }}
+>
+  CBSE • ISC • ICSE • UP Board • CA Foundation • CS Foundation
+</motion.div>
 
           <motion.h1
             initial={{ opacity: 0, scale: 0.9 }}
